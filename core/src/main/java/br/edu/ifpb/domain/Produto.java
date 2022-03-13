@@ -1,27 +1,26 @@
 package br.edu.ifpb.domain;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Produto {
-    private int id = 1;
+    private Integer id = 1;
     private String descricao = "notebook";
-    private BigDecimal valor = BigDecimal.valueOf(3000);
+    private Double valor = Double.valueOf(3000);
 
     public Produto() {
     }
 
-    public Produto(int id, String descricao, BigDecimal valor) {
+    public Produto(Integer id, String descricao, Double valor) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,11 +32,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public BigDecimal getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
@@ -46,7 +45,7 @@ public class Produto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Produto produto = (Produto) o;
-        return id == produto.id;
+        return id.equals(produto.id);
     }
 
     @Override
