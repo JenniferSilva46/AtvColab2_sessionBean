@@ -16,10 +16,10 @@
 
                 <p:dataTable id="checkboxDT" var="product" value="#{produtoController.listProd()}"
                              selection="#{produtoController.prodSelected}"
-                             rowKey="#{1}"
+                             rowKey="#{product.id}"
                              selectionMode="checkbox"
                              style="margin-bottom:0" paginator="false"  rows="5" selectionPageOnly="false">
-                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column selectionMode="multiple" style="width:16px; text-align:center"/>
 
                     <p:column headerText="Código">
                         <h:outputText value="#{product.id}" />
