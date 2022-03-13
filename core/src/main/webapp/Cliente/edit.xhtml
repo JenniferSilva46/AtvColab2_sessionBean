@@ -22,9 +22,10 @@
             <h:panelGrid id="tabela">
 
                 <h:outputLabel value="Nome"/>
-                <h:inputText value="#{cliente.nome}"/>
+                <h:inputText value="#{clienteController.cliente.nome}"/>
 
-                <h:commandButton action="#{clienteController.cliente.nome}" value="Salvar" class="btn"/>
+                <h:outputLabel value="CPF"/>
+                <h:inputText value="#{clienteController.cliente.cpf}"/>
 
                 <h:commandButton action="#{clienteController.setAddCliente()}" value="Salvar" class="btn"/>
             </h:panelGrid>

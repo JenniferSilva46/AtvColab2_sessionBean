@@ -75,9 +75,10 @@ public class ClienteJDBC implements ClienteInterface {
             PreparedStatement statement = dataSource
                     .getConnection()
                     .prepareStatement(
-                    "UPDATE cliente SET nome=? WHERE id=?");
+                    "UPDATE cliente SET nome=?, cpf=? WHERE id=?");
             statement.setString(1, cliente.getNome());
-            statement.setInt(2, cliente.getId());
+            statement.setString(2, cliente.getCpf());
+            statement.setInt(3, cliente.getId());
             statement.executeQuery();
 
         } catch (SQLException e) {
