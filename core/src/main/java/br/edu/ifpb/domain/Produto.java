@@ -3,9 +3,9 @@ package br.edu.ifpb.domain;
 import java.util.Objects;
 
 public class Produto {
-    private Integer id = 1;
-    private String descricao = "notebook";
-    private Double valor = Double.valueOf(3000);
+    private Integer id;
+    private String descricao;
+    private Double valor;
 
     public Produto() {
     }

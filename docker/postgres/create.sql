@@ -7,7 +7,7 @@ CREATE TABLE CLIENTE(
 
 CREATE TABLE PRODUTO(
    descricao varchar (25),
-   preco decimal,
+   valor decimal,
    id serial,
    PRIMARY KEY (id)
 );
