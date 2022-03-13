@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      template="./template.xhtml">
+    <ui:define name="head-template">
+        <h:head>
+            <title>Venda</title>
+        </h:head>
+    </ui:define>
+    <ui:define name="container-template">
+        <h:form>
+            <div class="card">
+                <h5>Checkbox</h5>
+                <p:dataTable id="checkboxDT" var="product" value="hello"
+                             selection="oi" rowKey="#{1}"
+                             style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+                    <p:column headerText="Name">
+                        <h:outputText value="oi" />
+                    </p:column>
+
+                    <p:column headerText="Category">
+                        <h:outputText value="Faquinho" />
+                    </p:column>
+                    <p:column headerText="Quantity">
+                        <h:outputText value="Vamos Passaaaaar!!" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
