@@ -42,7 +42,7 @@ public class ProdController implements Serializable {
         return this.produtos;
     }
 
-    public List<Produto> carrinhoCompras(){
+    public Produto carrinhoCompras(){
         logger.log(Level.INFO, "Selec Produtos" + this.prodSelected);
         return this.prodSelected;
     }
@@ -59,11 +59,11 @@ public class ProdController implements Serializable {
     }
 
 
-    public List<Produto> getProdSelected() {
+    public Produto getProdSelected() {
         return prodSelected;
     }
 
-    public void setProdSelected(List<Produto> prodSelected) {
+    public void setProdSelected(Produto prodSelected) {
         this.prodSelected = prodSelected;
     }
 
