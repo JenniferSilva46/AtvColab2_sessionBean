@@ -1,22 +1,26 @@
 package br.edu.ifpb.controller;
 
-import br.edu.ifpb.domain.Cliente;
 import br.edu.ifpb.domain.Produto;
+import br.edu.ifpb.service.Produto.ListaProduto;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Named("prodController")
+@Named("produtoController")
 @SessionScoped
 public class ProdController implements Serializable {
+
+    @Inject
+    private ListaProduto listaProduto;
 
     private List<Produto> produtos = new ArrayList<>();
     private Produto prodSelected = new Produto();
@@ -29,20 +33,15 @@ public class ProdController implements Serializable {
 
     public ProdController() {
 
-        }
-
-    public List<Produto> listProd(){
-        Produto produto = new Produto();
-
-        //TODO chamar método de lista produtos
-
-        this.produtos.add(produto);
-        logger.log(Level.INFO, "Lista Produtos" + this.produtos);
-        logger.log(Level.INFO, "Selec Produtos no list" + this.prodSelected);
-        return this.produtos;
     }
 
-    public List<Produto> carrinhoCompras(){
+    public List<Produto> listProd() throws SQLException, ClassNotFoundException {
+        List<Produto> prods = listaProduto.listarTodosProd();
+        logger.log(Level.INFO, "Lista Produtos" + prods);
+        return prods;
+    }
+
+    public Produto carrinhoCompras(){
         logger.log(Level.INFO, "Selec Produtos" + this.prodSelected);
         return this.prodSelected;
     }
@@ -59,11 +58,11 @@ public class ProdController implements Serializable {
     }
 
 
-    public List<Produto> getProdSelected() {
+    public Produto getProdSelected() {
         return prodSelected;
     }
 
-    public void setProdSelected(List<Produto> prodSelected) {
+    public void setProdSelected(Produto prodSelected) {
         this.prodSelected = prodSelected;
     }
 
