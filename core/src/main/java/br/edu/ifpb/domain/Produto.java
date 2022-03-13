@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Produto {
-    private int id;
-    private String descricao;
-    private BigDecimal valor;
+    private int id = 1;
+    private String descricao = "notebook";
+    private BigDecimal valor = BigDecimal.valueOf(3000);
 
     public Produto() {
     }

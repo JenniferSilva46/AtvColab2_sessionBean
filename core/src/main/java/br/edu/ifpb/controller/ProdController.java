@@ -8,32 +8,36 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    @Named
-    @SessionScoped
-    public class ProdController implements Serializable {
+@Named("prodController")
+@SessionScoped
+public class ProdController implements Serializable {
 
-        private List<Produto> produtos = new ArrayList<>();
-        private Produto prodSelected;
-        public ProdController() {
-        }
+    private List<Produto> produtos = new ArrayList<>();
+    private Produto prodSelected;
+    private static Logger logger = Logger.getLogger(ProdController.class.getName());
 
-        public List<Produto> listProd(){
-            BigDecimal valor = BigDecimal.valueOf(3050);
-            Produto produto = new Produto();
-            produto.setId(1);
-            produto.setDescricao("Notebbok");
-            produto.setValor(valor);
-            this.produtos.add(1,produto);
-            this.produtos.add(2, produto);
-            return this.produtos;
-        }
+public ProdController() {
 
-        public Produto getProdSelected() {
-            return prodSelected;
-        }
-
-        public void setProdSelected(Produto prodSelected) {
-            this.prodSelected = prodSelected;
-        }
     }
+
+    public List<Produto> listProd(){
+        BigDecimal valor = BigDecimal.valueOf(3050);
+        Produto produto = new Produto();
+
+        this.produtos.add(produto);
+        logger.log(Level.INFO, "Lista Produtos" + this.produtos);
+
+        return this.produtos;
+    }
+
+    public Produto getProdSelected() {
+        return prodSelected;
+    }
+
+    public void setProdSelected(Produto prodSelected) {
+        this.prodSelected = prodSelected;
+    }
+}
