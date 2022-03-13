@@ -36,7 +36,7 @@ public class ProdController implements Serializable {
     }
 
     public List<Produto> listProd() throws SQLException, ClassNotFoundException {
-        List<Produto> prods = listaProduto.listarTodosProd();
+        List<Produto> prods = this.listaProduto.listarTodosProd();
         logger.log(Level.INFO, "Lista Produtos" + prods);
         return prods;
     }

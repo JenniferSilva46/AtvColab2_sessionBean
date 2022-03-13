@@ -15,6 +15,7 @@ public class ListaProduto {
     private ProdutoInterface produtoInterface;
 
     public List<Produto> listarTodosProd() throws SQLException, ClassNotFoundException {
+
         return produtoInterface.listaProdutos();
     }
 }
