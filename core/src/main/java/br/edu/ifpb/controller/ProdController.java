@@ -19,11 +19,12 @@ import java.util.logging.Logger;
 public class ProdController implements Serializable {
 
     private List<Produto> produtos = new ArrayList<>();
-    private List<Produto> prodSelected;
+    private Produto prodSelected = new Produto();
     private Boolean finalizado = false;
     private Long quantProduto;
     private Long codCliente;
     private List<Long> Venda = new ArrayList<>();
+
     private static Logger logger = Logger.getLogger(ProdController.class.getName());
 
     public ProdController() {
@@ -37,7 +38,7 @@ public class ProdController implements Serializable {
 
         this.produtos.add(produto);
         logger.log(Level.INFO, "Lista Produtos" + this.produtos);
-
+        logger.log(Level.INFO, "Selec Produtos no list" + this.prodSelected);
         return this.produtos;
     }
 

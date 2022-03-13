@@ -37,7 +37,7 @@
 <!--                    </f:facet>-->
 <!--                </p:dataTable>-->
 
-            <p:selectOneListbox id="TodosProdutos" value="#{prodController.prodSelected}"
+            <p:selectOneListbox id="TodosProdutos" value="#{prodController.prodSelected}" converter="convert.produto"
                                 var="produtos" filter="true" filterMatchMode="contains">
                 <f:selectItems value="#{prodController.listProd()}" var="produto" itemLabel="#{produto.descricao}" itemValue="#{prodController.prodSelected}"/>
                 <p:column>
