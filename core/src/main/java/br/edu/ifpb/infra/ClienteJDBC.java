@@ -103,9 +103,9 @@ public class ClienteJDBC implements ClienteInterface {
     }
 
     @Override
-    public Cliente searchClientCpf(String cpf) {
+    public List<Cliente> searchClientCpf(String cpf) {
         try{
-            Cliente cliente= new Cliente();
+            List<Cliente> clientes = new ArrayList<>();
 
             PreparedStatement statement = this.dataSource
                     .getConnection()
@@ -117,9 +117,11 @@ public class ClienteJDBC implements ClienteInterface {
 
             ResultSet clienteResult = statement.getResultSet();
 
-            cliente = converterCliente(clienteResult);
+            while (  clienteResult.next() ){
+                clientes.add(converterCliente(clienteResult));
+            }
 
-            return cliente;
+            return clientes;
 
         } catch(SQLException ex){
             Logger.getLogger(ClienteJDBC.class.getName()).log(Level.SEVERE, null, ex);

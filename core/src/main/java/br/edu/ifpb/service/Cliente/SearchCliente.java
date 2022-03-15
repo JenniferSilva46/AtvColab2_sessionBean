@@ -5,6 +5,7 @@ import br.edu.ifpb.domain.ClienteInterface;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.util.List;
 
 @Stateless
 public class SearchCliente {
@@ -12,7 +13,7 @@ public class SearchCliente {
     @EJB
     private ClienteInterface clienteInterface;
 
-    public Cliente buscarCPF(String cpf){
+    public List<Cliente> buscarCPF(String cpf){
         return clienteInterface.searchClientCpf(cpf);
     }
 

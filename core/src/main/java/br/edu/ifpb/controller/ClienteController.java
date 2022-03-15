@@ -43,8 +43,8 @@ public class ClienteController implements Serializable {
         } else{
             this.addCliente.adicionarCliente(this.cliente);
         }
-
         this.cliente = new Cliente();
+
         return "/Cliente/list?faces-redirect=true";
     }
 
@@ -59,7 +59,7 @@ public class ClienteController implements Serializable {
         return "/Cliente/list?faces-redirect=true";
     }
 
-    public Cliente setSearhcCpf(){
+    public List<Cliente> setSearhcCpf(){
         return this.searchCliente.buscarCPF(this.cpf);
     }
 
