@@ -13,7 +13,7 @@ public interface ClienteInterface {
 
     public void deleteClienteJDBC (Cliente cliente);
 
-    public Cliente searchClientCpf(String local);
+    public List<Cliente> searchClientCpf(String local);
 
     public  Cliente searchClienteById(int id);
 
