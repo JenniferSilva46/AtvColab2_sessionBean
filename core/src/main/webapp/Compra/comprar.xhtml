@@ -34,9 +34,8 @@
                     </p:column>
 
                     <f:facet name="footer">
-                        <p:column headerText="Digite seu codigo">
+                        <p:outputLabel value="Digite seu codigo"/>
                         <p:inputNumber value="#{produtoController.codCliente}" />
-                    </p:column>
                         <p:commandButton value="Comprar" action="#{produtoController.AdicionarCompra()}"/>
                     </f:facet>
                 </p:dataTable>
