@@ -14,8 +14,12 @@
             <p:growl id="mensagens" widgetVar="growl" sticky="false"/>
             <h5>Produtos disponíveis</h5>
 
-                <p:dataTable id="checkboxDT" var="product" value="#{produtoController.listProd()}"
-                             style="margin-bottom:0" paginator="false"  rows="5">
+                <p:dataTable id="checkboxDT" value="#{produtoController.listProd()}"  var="product"
+                    selection="#{produtoController.prodSelected}"
+                    rowKey="#{product.id}"
+                    selectionMode="checkbox" style="margin-bottom:0" paginator="false"  rows="5" selectionPageOnly="false">
+
+                <p:column selectionMode="multiple" style="width:16px; text-align:center"/>
 
                     <p:column headerText="Código">
                         <h:outputText value="#{product.id}" />
@@ -24,29 +28,18 @@
                     <p:column headerText="Descrição">
                         <h:outputText value="#{product.descricao}" />
                     </p:column>
+
                     <p:column headerText="Valor">
                         <h:outputText value="#{product.valor}" />
                     </p:column>
 
                     <f:facet name="footer">
-                        <p:commandButton value="Comprar" action="carrinhoCompras"/>
+                        <p:column headerText="Digite seu codigo">
+                        <p:inputNumber value="#{produtoController.codCliente}" />
+                    </p:column>
+                        <p:commandButton value="Comprar" action="#{produtoController.AdicionarCompra()}"/>
                     </f:facet>
                 </p:dataTable>
-
-<!--            <p:selectOneListbox id="TodosProdutos" value="#{produtoController.prodSelected}" converter="convert.produto"-->
-<!--                                var="produtos" filter="true" filterMatchMode="contains">-->
-<!--                <f:selectItems value="#{produtoController.listProd()}" var="produto" itemLabel="#{produto.descricao}" itemValue="#{produtoController.prodSelected}"/>-->
-<!--                <p:column>-->
-<!--                    <h:outputText value="#{produtos.id}"/>-->
-<!--                </p:column>-->
-<!--                <p:column>-->
-<!--                    <h:outputText value="#{produtos.descricao}" />-->
-<!--                </p:column>-->
-<!--                <p:column>-->
-<!--                    <h:outputText value="#{produtos.valor}"/>-->
-<!--                </p:column>-->
-<!--            </p:selectOneListbox>-->
-<!--            <p:commandButton value="Comprar" action="carrinhoCompras"/>-->
         </h:form>
     </ui:define>
 </ui:composition>

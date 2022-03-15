@@ -14,8 +14,8 @@ public class DeleteProduto {
     @EJB
     private ProdutoInterface produtoInterface;
 
-    public void removeProduto(Produto produto){
-        this.produtoInterface.deleteProduto(produto);
+    public void removeProduto(int id){
+        this.produtoInterface.deleteProduto(id);
     }
 
 }

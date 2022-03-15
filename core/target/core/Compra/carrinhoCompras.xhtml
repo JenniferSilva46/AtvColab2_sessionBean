@@ -13,39 +13,31 @@
         <h:form id="form">
 
             <p:growl id="mensagens" widgetVar="growl" sticky="false"/>
-            <p:commandButton rendered="#{prodController.finalizado}" value="Ver produtos disponíveis" action="comprar" update="form"/>
+            <div class="ui-inputgroup">
+                <p:inputText placeholder="Digite seu código de identificação" value="#{produtoController.codCliente}"/>
+                <p:commandButton value="Ver carrinho" update="form"/>
+            </div>
 
             <h5>Meu carrinho de compras</h5>
-                <p:dataTable id="checkboxDT" var="product" value="#{prodController.carrinhoCompras()}"
-                             style="margin-bottom:0" paginator="false"  rows="5" selectionPageOnly="false">
+                <p:dataTable id="tabela" rendered="#{produtoController.finalizado}" var="venda" value="#{produtoController.carrinhoCompras()}"
+                             style="margin-bottom:0" paginator="true"  rows="15" selectionPageOnly="false">
 
-                    <p:column headerText="Código">
-                        <h:outputText value="#{product.id}" />
+                    <p:column headerText="Nome do cliente">
+                        <h:outputText value="#{venda.nomeCliente}" />
                     </p:column>
 
                     <p:column headerText="Descrição">
-                        <h:outputText value="#{product.descricao}" />
+                        <h:outputText value="#{venda.descricaoProduto}" />
                     </p:column>
                     <p:column headerText="Valor">
-                        <h:outputText value="#{product.valor}" />
-                    </p:column>
-
-                    <p:column headerText="Quantidade">
-                        <h:outputText value="#{prodController.quantProduto}"/>
-                    </p:column>
-
-
-                    <p:column headerText="Digite seu código">
-                        <p:inputNumber value="#{prodController.clienteTemporario}"/>
+                        <h:outputText value="#{venda.valor}" />
                     </p:column>
 
                     <f:facet name="footer">
                         <p:row>
-                            <p:column id="codClient" headerText="Digite seu código" colspan="1" >
-                                <p:inputNumber value="#{prodController.clienteTemporario}"/>
-                            </p:column>
+
                             <p:column id="finalizaCompra" >
-                                <p:commandButton value="Finalizar compra" action="#{prodController.finalizar}" update=":form:mensagens"/>
+                                <p:commandButton value="Finalizar compra" action="#{produtoController.finalizar}" update=":form:mensagens"/>
                             </p:column>
                         </p:row>
                     </f:facet>

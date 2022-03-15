@@ -21,9 +21,9 @@ public class ConverterProduto implements Converter {
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         if (value == null) return null;
-        Produto produto = (Produto) value;
+        String produto = value.toString();
 
-        return (produto.getId().toString());
+        return (produto);
     }
 
 }

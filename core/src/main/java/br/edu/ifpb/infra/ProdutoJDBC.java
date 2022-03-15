@@ -34,7 +34,6 @@ public class ProdutoJDBC implements ProdutoInterface {
 //            next percore o ResultSet e reforna false quando estar na ultima posição
             while ( resultQuery.next() ){
                 produtos.add(converterProduto(resultQuery));
-                System.out.println(produtos);
             }
             return produtos;
 
@@ -85,13 +84,13 @@ public class ProdutoJDBC implements ProdutoInterface {
     }
 
     @Override
-    public void deleteProduto(Produto produto) {
+    public void deleteProduto(int id) {
         try{
             PreparedStatement statement = this.dataSource
                     .getConnection()
                     .prepareStatement(
                             "DELETE FROM produto WHERE id=?");
-            statement.setInt(1, produto.getId());
+            statement.setInt(1, id);
             statement.executeQuery();
 
         } catch (SQLException e) {

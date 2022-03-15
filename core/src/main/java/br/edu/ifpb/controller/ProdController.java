@@ -1,7 +1,13 @@
 package br.edu.ifpb.controller;
 
+import br.edu.ifpb.domain.CarrinhoCompras;
 import br.edu.ifpb.domain.Produto;
+import br.edu.ifpb.domain.Venda;
+import br.edu.ifpb.domain.VendaInterface;
+import br.edu.ifpb.service.Produto.DeleteProduto;
 import br.edu.ifpb.service.Produto.ListaProduto;
+import br.edu.ifpb.service.venda.AddVenda;
+import br.edu.ifpb.service.venda.ListaVendas;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -21,18 +27,24 @@ public class ProdController implements Serializable {
 
     @Inject
     private ListaProduto listaProduto;
+    @Inject
+    private ListaVendas listaVendas;
+    @Inject
+    private AddVenda addVenda;
+    @Inject
+    private DeleteProduto deleteProduto;
 
     private List<Produto> produtos = new ArrayList<>();
-    private Produto prodSelected = new Produto();
+    private List<Produto> prodSelected = new ArrayList<>();
     private Boolean finalizado = false;
     private Long quantProduto;
-    private Long codCliente;
-    private List<Long> Venda = new ArrayList<>();
+    private int codCliente;
+    private List<CarrinhoCompras> adicioneVenda = new ArrayList<>();
 
     private static Logger logger = Logger.getLogger(ProdController.class.getName());
 
     public ProdController() {
-
+        codCliente = 0;
     }
 
     public List<Produto> listProd() throws SQLException, ClassNotFoundException {
@@ -41,33 +53,38 @@ public class ProdController implements Serializable {
         return prods;
     }
 
-    public Produto carrinhoCompras(){
-        logger.log(Level.INFO, "Selec Produtos" + this.prodSelected);
-        return this.prodSelected;
+    public List<CarrinhoCompras> carrinhoCompras() throws SQLException, ClassNotFoundException {
+        return listaVendas.listaVendas(this.codCliente);
     }
 
-    public void historicoVenda(){
+    public String AdicionarCompra(){
 
+        logger.log(Level.INFO, "Carrinho: produto" + this.prodSelected +"Carrinho: cliente"+this.codCliente);
+        this.prodSelected.forEach(produto ->
+        addVenda.adicionarVenda(produto.getId(), this.codCliente));
+
+        return "/Compra/carrinhoCompras?faces-redirect=true";
     }
-    public void finalizar(){
-
-        logger.log(Level.INFO, "Carrinho: produto" + this.prodSelected +"Carrinho: quantidade"+ this.quantProduto + "Carrinho: cliente"+this.codCliente);
-        //TODO chamar método de delit passando a lista de produtos selecionados this.prodSelected
+    public void finalizar() throws SQLException, ClassNotFoundException {
+        this.adicioneVenda.addAll(listaVendas.listaVendas(this.codCliente));
+        this.adicioneVenda.forEach(obj -> deleteProduto.removeProduto(obj.getIdCod()));
         FacesContext.getCurrentInstance().addMessage("mensagens", new FacesMessage(FacesMessage.SEVERITY_INFO, "Compra realizada com sucesso", "Compra realizada com sucesso"));
         finalizado = true;
     }
 
-
-    public Produto getProdSelected() {
+    public List<Produto> getProdSelected() {
         return prodSelected;
     }
 
-    public void setProdSelected(Produto prodSelected) {
+    public void setProdSelected(List<Produto> prodSelected) {
         this.prodSelected = prodSelected;
     }
 
     public Boolean getFinalizado() {
-        return finalizado;
+        if(this.codCliente > 0){
+            return finalizado = true;
+        }
+        return finalizado = false;
     }
 
     public void setFinalizado(Boolean finalizado) {
@@ -82,19 +99,19 @@ public class ProdController implements Serializable {
         this.quantProduto = quantProduto;
     }
 
-    public Long getCodCliente() {
+    public int getCodCliente() {
         return codCliente;
     }
 
-    public void setCodCliente(Long codCliente) {
+    public void setCodCliente(int codCliente) {
         this.codCliente = codCliente;
     }
 
-    public List<Long> getVenda() {
-        return Venda;
-    }
-
-    public void setVenda(List<Long> venda) {
-        Venda = venda;
-    }
+//    public List<Long> getVenda() {
+//        return Venda;
+//    }
+//
+//    public void setVenda(List<Long> venda) {
+//        Venda = venda;
+//    }
 }

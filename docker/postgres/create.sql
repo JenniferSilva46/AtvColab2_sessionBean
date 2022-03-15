@@ -14,7 +14,6 @@ CREATE TABLE PRODUTO(
 
 CREATE TABLE VENDA(
     produto int,
-    quantidade int,
     cliente int,
     id serial,
     FOREIGN KEY (produto) REFERENCES PRODUTO(id) ON DELETE CASCADE,

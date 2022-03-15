@@ -8,6 +8,6 @@ INSERT INTO PRODUTO (descricao, valor) VALUES ('Monitor Asus','1500');
 INSERT INTO PRODUTO (descricao, valor) VALUES ('Headset Dell','540');
 
 
-INSERT INTO VENDA (produto, quantidade, cliente) VALUES (1, 1, 1);
-INSERT INTO VENDA (produto, quantidade, cliente) VALUES (2, 2, 2);
-INSERT INTO VENDA (produto, quantidade, cliente) VALUES (3, 3, 3);
+INSERT INTO VENDA (produto, cliente) VALUES (1, 1);
+INSERT INTO VENDA (produto, cliente) VALUES (2, 2);
+INSERT INTO VENDA (produto, cliente) VALUES (3, 3);

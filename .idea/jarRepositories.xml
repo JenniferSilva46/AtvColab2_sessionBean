@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="geomajas" />
+      <option name="name" value="geomajas release" />
+      <option name="url" value="http://maven.geomajas.org" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -12,9 +17,69 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="jabylon" />
+      <option name="name" value="Jabylon release" />
+      <option name="url" value="http://www.jabylon.org/maven" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo1.maven.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jcenter" />
+      <option name="name" value="Jcenter repository" />
+      <option name="url" value="https://jcenter.bintray.com" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="datanucleos" />
+      <option name="name" value="Data Nucleos" />
+      <option name="url" value="http://www.datanucleus.org/downloads/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="vodafone" />
+      <option name="name" value="Vodafone Repository" />
+      <option name="url" value="https://svn.sp.vodafone.com/archiva/repository/internal" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gridgain" />
+      <option name="name" value="Grid Gain Repository" />
+      <option name="url" value="https://www.gridgainsystems.com/nexus/content/repositories/external" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="publicnexus" />
+      <option name="name" value="Public Nexus" />
+      <option name="url" value="http://192.168.2.8:8081/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="publicsnapshot" />
+      <option name="name" value="Public Snapshot" />
+      <option name="url" value="http://192.168.2.8:8081/nexus/content/groups/public-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="sonatype" />
+      <option name="name" value="sonatype release" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="apacherelease" />
+      <option name="name" value="Apache release" />
+      <option name="url" value="https://repository.apache.org/content/repositories/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="nexusthirdparty" />
+      <option name="name" value="Nexus Third Party" />
+      <option name="url" value="http://192.168.2.8:8081/nexus/content/repositories/thirdparty" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="centralnexus" />
+      <option name="name" value="Nexus Central Repository" />
+      <option name="url" value="http://192.168.2.8:8081/nexus/content/repositories/central" />
     </remote-repository>
   </component>
 </project>

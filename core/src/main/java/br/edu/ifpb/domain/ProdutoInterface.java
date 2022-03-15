@@ -11,7 +11,7 @@ public interface ProdutoInterface {
 
     public void updateProduto (Produto produto);
 
-    public void deleteProduto (Produto produto);
+    public void deleteProduto (int id);
 
 
 
