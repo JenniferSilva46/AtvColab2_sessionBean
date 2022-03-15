@@ -1,5 +1,6 @@
 package br.edu.ifpb.infra;
 
+import br.edu.ifpb.domain.Cliente;
 import br.edu.ifpb.domain.Produto;
 import br.edu.ifpb.domain.ProdutoInterface;
 
@@ -80,6 +81,33 @@ public class ProdutoJDBC implements ProdutoInterface {
 
         } catch (SQLException e){
             Logger.getLogger(ProdutoJDBC.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    @Override
+    public List<Produto> searchProdutoDescricao(String descricao) {
+        try{
+            List<Produto> produtos = new ArrayList<>();
+
+            PreparedStatement statement = this.dataSource
+                    .getConnection()
+                    .prepareStatement(
+                            "SELECT * FROM produto WHERE descricao = ?");
+
+            statement.setString(1, descricao);
+            statement.executeQuery();
+
+            ResultSet produtoResult = statement.getResultSet();
+
+            while (  produtoResult.next() ){
+                produtos.add(converterProduto(produtoResult));
+            }
+
+            return produtos;
+
+        } catch(SQLException ex){
+            Logger.getLogger(ClienteJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
     }
 

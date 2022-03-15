@@ -11,6 +11,8 @@ public interface ProdutoInterface {
 
     public void updateProduto (Produto produto);
 
+    public List<Produto> searchProdutoDescricao(String local);
+
     public void deleteProduto (int id);
 
 
