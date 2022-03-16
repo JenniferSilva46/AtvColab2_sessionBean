@@ -13,26 +13,5 @@
         </h:head>
     </ui:define>
     <ui:define name="container-template">
-        <h:form>
-            <div class="card">
-                <h5>Checkbox</h5>
-                <p:dataTable id="checkboxDT" var="product" value="hello"
-                             selection="oi" rowKey="#{1}"
-                             style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
-                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-
-                    <p:column headerText="Name">
-                        <h:outputText value="oi" />
-                    </p:column>
-
-                    <p:column headerText="Category">
-                        <h:outputText value="Faquinho" />
-                    </p:column>
-                    <p:column headerText="Quantity">
-                        <h:outputText value="Vamos Passaaaaar!!" />
-                    </p:column>
-                </p:dataTable>
-            </div>
-        </h:form>
     </ui:define>
 </ui:composition>

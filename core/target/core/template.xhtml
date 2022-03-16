@@ -22,12 +22,15 @@
     <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container">
                         <p:megaMenu orientation="horizontal" autoDisplay="false" class="light-blue lighten-1" style="border: none">
-                            <p:submenu label="Cliente">
+                            <p:submenu label="Menu">
                                 <p:column>
                                     <p:submenu label="">
                                         <p:menuitem value="Todas os clientes" outcome="/Cliente/list"/>
                                         <p:menuitem value="Cadastrar cliente" outcome="/Cliente/edit"/>
                                         <p:menuitem value="Buscar por cpf" outcome="/Cliente/search"/>
+                                        <p:menuitem value="Todos os produtos" outcome="/Produto/list"/>
+                                        <p:menuitem value="Cadastrar produto" outcome="/Produto/edit"/>
+                                        <p:menuitem value="Buscar produto" outcome="/Produto/search"/>
                                     </p:submenu>
                                 </p:column>
                             </p:submenu>
@@ -36,9 +39,7 @@
 
 <!--                                <p:column>-->
 <!--                                    <p:submenu label="">-->
-<!--                                        <p:menuitem value="Todos os produtos" />-->
-<!--                                        <p:menuitem value="Cadastrar produto"/>-->
-<!--                                        <p:menuitem value="Buscar produto" />-->
+
 <!--                                    </p:submenu>-->
 <!--                                </p:column>-->
 <!--                            </p:submenu>-->
