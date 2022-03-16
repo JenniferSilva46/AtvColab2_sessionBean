@@ -37,6 +37,7 @@ public class ResourcesProdutos {
     @Produces({MediaType.APPLICATION_JSON})
     @Path("{descricao}")
     public List<Produto> buscarDescricao(@PathParam("descricao") String descricao){
+        System.out.println(descricao);
         return this.busca.buscarDescricao(descricao);
     }
 

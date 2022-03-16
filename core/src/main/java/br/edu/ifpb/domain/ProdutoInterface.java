@@ -11,7 +11,7 @@ public interface ProdutoInterface {
 
     public void updateProduto (Produto produto);
 
-    public List<Produto> searchProdutoDescricao(String local);
+    public List<Produto> searchProdutoDescricao(String descricao);
 
     public void deleteProduto (int id);
 

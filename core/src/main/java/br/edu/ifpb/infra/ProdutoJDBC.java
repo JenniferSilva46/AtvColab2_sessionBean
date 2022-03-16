@@ -76,7 +76,7 @@ public class ProdutoJDBC implements ProdutoInterface {
                             "UPDATE produto SET descricao=?, valor=? WHERE id=?");
             statement.setString(1, produto.getDescricao());
             statement.setDouble(2, produto.getValor());
-            statement.setInt(2, produto.getId());
+            statement.setInt(3, produto.getId());
             statement.executeQuery();
 
         } catch (SQLException e){

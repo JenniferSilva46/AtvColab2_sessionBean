@@ -4,7 +4,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
                 template="../template.xhtml">
 
     <ui:define name="head-template">
@@ -25,7 +25,7 @@
                 <h:inputText value="#{produtoControllar.produto.descricao}"/>
 
                 <h:outputLabel value="Valor"/>
-                <h:inputText value="#{produtoControllar.produto.valor}"/>
+                <p:inputNumber value="#{produtoControllar.produto.valor}"/>
 
                 <h:commandButton action="#{produtoControllar.setAddProduto()}" value="Salvar" class="btn"/>
             </h:panelGrid>

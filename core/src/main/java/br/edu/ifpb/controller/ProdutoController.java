@@ -1,7 +1,5 @@
 package br.edu.ifpb.controller;
 
-import br.edu.ifpb.domain.CarrinhoCompras;
-import br.edu.ifpb.domain.Cliente;
 import br.edu.ifpb.domain.Produto;
 import br.edu.ifpb.service.Produto.DeleteProduto;
 import br.edu.ifpb.service.Produto.ListaProduto;
@@ -50,8 +48,7 @@ public class ProdutoController implements Serializable {
         return prods;
     }
     public String setAddProduto(){
-
-        if(this.produto.getId() > 0){
+        if(this.produto.getId() != null ){
             this.updateProduto.atualizarProduto(this.produto);
         } else{
             this.addProduto.adicionarProduto(this.produto);
@@ -66,14 +63,17 @@ public class ProdutoController implements Serializable {
         return "/Produto/edit?faces-redirect=true";
     }
 
-//    public String setDeleteProduto(Produto produto){
-//
-//        this.deleteProduto.removeProduto(produto); "está esperando o id do produto, um inteiro"
-//        return "/Produto/list?faces-redirect=true";
-//    }
+    public String setDeleteProduto(Produto produto){
+
+        this.deleteProduto.removeProduto(produto.getId());
+        return "/Produto/list?faces-redirect=true";
+    }
 
     public List<Produto> setSearchProduto(){
-        return this.searchProduto.buscarDescricao(this.descricao);
+        logger.log(Level.INFO, "Produtos descricao" + this.descricao);
+        List<Produto> buscaProduto = this.searchProduto.buscarDescricao(this.descricao);
+        logger.log(Level.INFO, "Produtos teste" + buscaProduto);
+        return buscaProduto;
     }
 
     public Produto getProduto() {
@@ -91,7 +91,6 @@ public class ProdutoController implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
 
 
 }
