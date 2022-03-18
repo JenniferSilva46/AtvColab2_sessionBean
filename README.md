@@ -1,4 +1,3 @@
-## <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px"> Hellooo Helloo World! </h2>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/57498887/134352674-9837ff29-10ff-44f7-8c46-cb517767be49.png" width="175" height="250">
 
